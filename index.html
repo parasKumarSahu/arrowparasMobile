@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ZNUMBERZ</title>
+        <title>PARAS</title>
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = 0, minimal-ui" />
         <link rel = "shortcut icon" sizes = "256x256" href = "icon.jpg" />
         <style type = "text/css">
@@ -17,10 +17,42 @@
                 touch-action: none;
                 -ms-touch-action: none;
             }
+            .wrapper {
+                text-align: center;
+            }
+            .btn {
+              background: #b36827;
+              background-image: -webkit-linear-gradient(top, #b36827, #b83b2b);
+              background-image: -moz-linear-gradient(top, #b36827, #b83b2b);
+              background-image: -ms-linear-gradient(top, #b36827, #b83b2b);
+              background-image: -o-linear-gradient(top, #b36827, #b83b2b);
+              background-image: linear-gradient(to bottom, #b36827, #b83b2b);
+              -webkit-border-radius: 60;
+              -moz-border-radius: 60;
+              border-radius: 60px;
+              font-family: Arial;
+              color: #ffffff;
+              font-size: 40px;
+              padding: 10px 20px 10px 20px;
+              text-decoration: none;
+              position: absolute;
+              top: 50%;
+              left:40%;
+            }
+
+            .btn:hover {
+              background: #3cfc69;
+              background-image: -webkit-linear-gradient(top, #3cfc69, #8cd934);
+              background-image: -moz-linear-gradient(top, #3cfc69, #8cd934);
+              background-image: -ms-linear-gradient(top, #3cfc69, #8cd934);
+              background-image: -o-linear-gradient(top, #3cfc69, #8cd934);
+              background-image: linear-gradient(to bottom, #3cfc69, #8cd934);
+              text-decoration: none;
+            }
         </style>
-        <script src="cordova.js"></script>
-        <script src="phaser.min.js"></script>
-        <script src = "game.js"></script>
     </head>
     <body>
+        <form action="game.html">
+            <input class="btn" type="submit" value="Start Game" />
+        </form>
     </body>

@@ -1,6 +1,6 @@
-document.addEventListener("deviceready", onDeviceReady, false);
+//document.addEventListener("deviceready", onDeviceReady, false);
  
-function onDeviceReady(){
+//function onDeviceReady(){
 
 
 
@@ -117,5 +117,4 @@ function shootArrow() {
     yVel = - (game.input.activePointer.y-bow.y)/6;
   }
 }
-
-}
+//}
