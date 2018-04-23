@@ -1,6 +1,6 @@
-document.addEventListener("deviceready", onDeviceReady, false);
+//document.addEventListener("deviceready", onDeviceReady, false);
  
-function onDeviceReady(){
+//function onDeviceReady(){
 
 
 var name ="Player1";
@@ -80,10 +80,10 @@ function create() {
   cloud.anchor.setTo(.5);
   cloud2 = game.add.sprite(window.innerWidth-(window.innerWidth/10)-(window.innerWidth/60), 2*window.innerHeight/3, 'cloud2');
   cloud2.anchor.setTo(.5);
-   bow = game.add.sprite(window.innerWidth/10+(window.innerWidth/120), window.innerHeight/2-(window.innerHeight/70), 'bow');
+   bow = game.add.sprite(window.innerWidth/10+(window.innerWidth/200), window.innerHeight/2-(window.innerHeight/70), 'bow');
   bow.anchor.setTo(1, .5);
   
-  bow2 = game.add.sprite(window.innerWidth-(window.innerWidth/10)-(window.innerWidth/120), window.innerHeight/2-(window.innerHeight/70),'bow2');
+  bow2 = game.add.sprite(window.innerWidth-(window.innerWidth/10)-(window.innerWidth/120)+(window.innerWidth/200), window.innerHeight/2-(window.innerHeight/70),'bow2');
   bow2.anchor.setTo(0, .5);
   
   bag = game.add.sprite(window.innerWidth/10, window.innerHeight/2, 'bag');
@@ -97,7 +97,7 @@ function create() {
   mountain.x=(window.innerWidth/2)-mountain.width/2;
   arrow = game.add.sprite(bow.x, bow.y-bow.height/2, 'arrow');
   arrow.scale.setTo(0.5);
-  arrow.pivot.x = 100;
+  arrow.pivot.x = (window.innerWidth/12);
   arrow.anchor.setTo(.5);
   arrow.x=bow.x;
   arrow.y=bow.y;
@@ -157,7 +157,7 @@ function update() {
 
         if(dragging)
         {
-          angle = Math.atan2(game.input.mousePointer.x - bow.x, -((game.input.mousePointer.y+60) - bow.y)) * (180 / Math.PI) - 180;
+          angle = Math.atan2(game.input.activePointer.x - bow.x, -((game.input.activePointer.y+60) - bow.y)) * (180 / Math.PI) - 180;
          bow.angle = arrow.angle = angle;    
         }
         else{
@@ -216,7 +216,7 @@ function update() {
     }
   }
 if (!shot2) {
-//    angle2 = 180-Math.atan2(game.input.mousePointer.x - bow.x, -(game.input.mousePointer.y - bow.y)) * (180 / Math.PI);
+//    angle2 = 180-Math.atan2(game.input.activePointer.x - bow.x, -(game.input.activePointer.y - bow.y)) * (180 / Math.PI);
         arrow2.angle = bow2.angle = -90;
     
   } else {
@@ -298,11 +298,11 @@ function createArrow() {
 function shootArrow() {
              xText.text = "Drag mouse behind the bow to rotate the bow and relase mouse to fire";
 
- if(!shot && game.input.mousePointer.x>0 
-    && game.input.mousePointer.x<1200/2
-      && game.input.mousePointer.y<3*700/4
-      && game.input.mousePointer.y>700/6) {
-//             xText.text = 'mouse x: ' + game.input.mousePointer.x+' mouse y: ' + game.input.mousePointer.y;
+ if(!shot && game.input.activePointer.x>0 
+    && game.input.activePointer.x<1200/2
+      && game.input.activePointer.y<3*700/4
+      && game.input.activePointer.y>700/6) {
+//             xText.text = 'mouse x: ' + game.input.activePointer.x+' mouse y: ' + game.input.activePointer.y;
 
   xText.text = "";
     shot = true;
@@ -316,12 +316,12 @@ function shootArrow() {
  //   scoreText.text = newArrow.x;
     newArrow.scale.setTo(0.5);
     newArrow.angle = bow.angle;
-    xVel = - (game.input.mousePointer.x-bow.x)/5;
-    yVel = - ((game.input.mousePointer.y+60)-bow.y)/6;
+    xVel = - (game.input.activePointer.x-bow.x)/5;
+    yVel = - ((game.input.activePointer.y+60)-bow.y)/6;
 
     releaseArrow.play();
 
-//    Client.sendClick(game.input.mousePointer.x, game.input.mousePointer.y, angle);
+//    Client.sendClick(game.input.activePointer.x, game.input.activePointer.y, angle);
 /*
       if(bow.y==340 && name2!=""){
       bow.y = 190;
@@ -426,4 +426,4 @@ function removePlayer(namei){
   cloud2.y = 450;             
   bag2.y = 350;
 }
-}
+//}
