@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>PARAS</title>
-        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = 0, minimal-ui" />
-        <link rel = "shortcut icon" sizes = "256x256" href = "icon.jpg" />
+<head>
+  <meta charset="UTF-8″>
+  <title>Yuudh-2D</title>
+      <link rel = "shortcut icon" sizes = "256x256" href = "icon.jpg" />
         <style type = "text/css">
             * {
                 padding: 0;
                 margin: 0;
             }
             body{
-                background: #202020;
+                background-image: url('bowMan.gif');
+                background-position: top;
+                background-repeat: no-repeat;
+                background-size: cover;
             }
             canvas {
                 touch-action-delay: none;
@@ -20,39 +23,53 @@
             .wrapper {
                 text-align: center;
             }
-            .btn {
-              background: #b36827;
-              background-image: -webkit-linear-gradient(top, #b36827, #b83b2b);
-              background-image: -moz-linear-gradient(top, #b36827, #b83b2b);
-              background-image: -ms-linear-gradient(top, #b36827, #b83b2b);
-              background-image: -o-linear-gradient(top, #b36827, #b83b2b);
-              background-image: linear-gradient(to bottom, #b36827, #b83b2b);
-              -webkit-border-radius: 60;
-              -moz-border-radius: 60;
-              border-radius: 60px;
-              font-family: Arial;
-              color: #ffffff;
-              font-size: 40px;
-              padding: 10px 20px 10px 20px;
-              text-decoration: none;
-              position: absolute;
-              top: 50%;
-              left:40%;
+            #main h1 {
+              color: white;
+              text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
             }
+                    
+           .button {
+              display: block;
+              width: 20%;
+              margin-left: 40%;
+              margin-top: 10%;
+              line-height: 30px;
+              border: 1px solid #AA2666;
+              color: white;
+              font-weight: bold;
+              text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+              background-color: #FB1886;
+              background-image: -webkit-linear-gradient(bottom, #FB1886 0%, #B30D5D 100%);
+              background-image:         linear-gradient(to bottom, #FB1886 0%, #B30D5D 100%);
+              border-radius: 5px;
+          }
+          .button:hover {
+              background-color: #B30D5D;
+              background-image: -webkit-linear-gradient(bottom, #B30D5D 0%, #FB1886 100%);
+              background-image:         linear-gradient(to bottom, #B30D5D 0%, #FB1886 100%);
+          }
+          a{
+              text-decoration: none;
+          }
 
-            .btn:hover {
-              background: #3cfc69;
-              background-image: -webkit-linear-gradient(top, #3cfc69, #8cd934);
-              background-image: -moz-linear-gradient(top, #3cfc69, #8cd934);
-              background-image: -ms-linear-gradient(top, #3cfc69, #8cd934);
-              background-image: -o-linear-gradient(top, #3cfc69, #8cd934);
-              background-image: linear-gradient(to bottom, #3cfc69, #8cd934);
-              text-decoration: none;
-            }
-        </style>
-    </head>
-    <body>
-        <form action="game.html">
-            <input class="btn" type="submit" value="Start Game" />
-        </form>
-    </body>
+</style>
+  
+</head>
+<body>
+  <div class="wrapper">
+    <div id="menu" class="main">
+      <div id="main">
+
+        <br><br>
+        <h1>Yuudh-2D</h1>
+        <ul>
+          <li><a href="game.html" class="button play">Start Game</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ <audio autoplay loop>
+      <source src="assets/music.mp3">
+  </audio> 
+</body>
+</html>
