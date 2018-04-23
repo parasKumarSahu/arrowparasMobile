@@ -1,6 +1,6 @@
-//document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener("deviceready", onDeviceReady, false);
  
-//function onDeviceReady(){
+function onDeviceReady(){
 
 
 var name ="Player1";
@@ -186,15 +186,15 @@ function update() {
      oldy = y;
     
     
-    if(newArrow.y>window.innerHeight+50 || newArrow.x>window.innerWidth+50
-     || newArrow.y<0-100 || newArrow.x<0-50) {
+    if(newArrow.y>window.innerHeight+(window.innerHeight/70)*5 || newArrow.x>window.innerWidth+(window.innerWidth/120)*5
+     || newArrow.y<0-(window.innerHeight/70)*10 || newArrow.x<0-(window.innerWidth/120)*5) {
       resetArrow();
           game.add.tween(newArrow).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
     }
     
     
  //   var intersects = Phaser.Rectangle.intersection(newArrow, bag);
-   if(x>580 && x<610 && y > mountain.y+20) {
+   if(x>(window.innerWidth/12)*5 && x<(window.innerWidth/120)*61 && y > mountain.y+(window.innerHeight/70)*2) {
  //   scoreText.text=x +" "+y;
            hitMountain.play();
 
@@ -206,7 +206,7 @@ function update() {
       resetArrow();
 
     emitter.x = bag2.x;
-    emitter.y = bag2.y-50;
+    emitter.y = bag2.y-(window.innerHeight/70)*5;
 
     emitter.start(true, 2000, null, 10);
 
@@ -296,12 +296,12 @@ function createArrow() {
 }
 
 function shootArrow() {
-             xText.text = "Drag mouse behind the bow to rotate the bow and relase mouse to fire";
+             xText.text = "Drag mouse behind the bow to rotate the bow and relase to fire";
 
  if(!shot && game.input.activePointer.x>0 
-    && game.input.activePointer.x<1200/2
-      && game.input.activePointer.y<3*700/4
-      && game.input.activePointer.y>700/6) {
+    && game.input.activePointer.x<(window.innerWidth/2)
+      && game.input.activePointer.y<3*(window.innerHeight)/4
+      && game.input.activePointer.y>(window.innerHeight)/6) {
 //             xText.text = 'mouse x: ' + game.input.activePointer.x+' mouse y: ' + game.input.activePointer.y;
 
   xText.text = "";
@@ -343,16 +343,17 @@ function checkOverlap(spriteA, spriteB) {
 
     var boundsA = spriteA.getBounds();
     var boundsB = spriteB.getBounds();
-    boundsB.y -= 40;
-    boundsB.width-=50;
-    boundsB.height+=15;
-    if(spriteB.x<350){
-      boundsB.x+=45;
-    }
 
+    boundsB.y -= (window.innerHeight/70)*3;
+/*    boundsB.width-=50;
+    boundsB.height+=(window.innerHeight/700)*15;
+    if(spriteB.x<(window.innerWidth/2)){
+      boundsB.x+=(window.innerWidth/1200)*45;
+    }
+*/
 //    game.debug.spriteBounds(spriteA);
 
- //  game.debug.geom( boundsB, 'rgba(255,0,0,1)' ) ;
+//   game.debug.geom( boundsB, 'rgba(255,0,0,1)' ) ;
      return Phaser.Rectangle.intersects(boundsA, boundsB);
 
 }
@@ -426,4 +427,4 @@ function removePlayer(namei){
   cloud2.y = 450;             
   bag2.y = 350;
 }
-//}
+}
